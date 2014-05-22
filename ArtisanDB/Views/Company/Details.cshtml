@@ -1,0 +1,43 @@
+﻿@model ArtisanDB.Models.Company
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Company</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.incorpDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.incorpDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.stockname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.stockname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.price)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
