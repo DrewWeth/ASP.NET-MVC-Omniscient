@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ArtisanDB.Models;
+using System.Net;
+using System.IO;
+
 
 namespace ArtisanDB.Controllers
 {
@@ -129,9 +132,27 @@ namespace ArtisanDB.Controllers
                 return View(companies);
             }
             return View(companies);
-            
-
         }
+
+        public ActionResult Update(String urlReq)
+        {
+            //var companies = from c in db.Companies
+            //                select c;
+            if(true)
+            {
+                if (urlReq != null)
+                {
+                    String htmlCode = "Error";
+                    using (WebClient client = new WebClient())
+                    {
+                        htmlCode = client.DownloadString(urlReq);
+                    }
+                    ViewBag.sourceCode = HttpUtility.HtmlEncode(htmlCode);
+                } 
+            }
+            return View();
+        }
+
         // Post, naturally
         [HttpPost]
         public string SearchIndex(FormCollection fc, string searchString)
